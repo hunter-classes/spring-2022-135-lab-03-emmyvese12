@@ -48,10 +48,10 @@ double get_east_storage(std::string date){
         fin.ignore(INT_MAX, '\n'); //skips to the end of the line & ignores the other columns
         if (date == date_fromfile){ //date is the hard coded date in main
             user_eastSt = eastSt;
-            fin.close(); //close the stream after finding the date that was entered
         }
 
     }
+    fin.close();
     return user_eastSt;
     
 }
@@ -63,6 +63,7 @@ double get_min_east(){
 
     if (fin.fail()){
         std::cerr << "File cannot be opened for reading." << std::endl;
+        exit(1);
     }
     std::string junk;
     getline(fin, junk);
@@ -90,6 +91,7 @@ double get_max_east(){
 
     if (fin.fail()){
         std::cerr << "File cannot be opened for reading." << std::endl;
+        exit(1);
     }
     std::string junk;
     getline(fin, junk);
@@ -117,6 +119,7 @@ std::string compare_basins(std::string date){
 
     if (fin.fail()){
         std::cerr << "File cannot be opened for reading." << std::endl;
+        exit(1);
     }
     std::string junk;
     getline(fin, junk);
